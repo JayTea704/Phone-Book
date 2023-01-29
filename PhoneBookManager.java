@@ -24,9 +24,10 @@ public class PhoneBookManager {
 
     public void printBook(){
         for(int i = 0; i < phoneBook.size(); i++) {
-            System.out.println(phoneBook.get(i).data);
-            System.out.println(phoneBook.get(i).next.data);
-            System.out.println(phoneBook.get(i).next.next.data);
+            System.out.println("Name: " + phoneBook.get(i).data);
+            System.out.println("Phone Number: " + phoneBook.get(i).next.data);
+            System.out.println("Address: " + phoneBook.get(i).next.next.data);
+            System.out.println();
         }
 
     }

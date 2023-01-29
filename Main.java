@@ -7,8 +7,13 @@ public class Main {
         PhoneBookManager book = new PhoneBookManager(input);
         boolean ask = true;
         while(ask) {
-            System.out.println("add contact");
-            if (input.next().equals("y")){
+            System.out.println("add contact (a)");
+            System.out.println("remove contact (r)");
+            System.out.println("change contact (c)");
+
+            String ans = input.next();
+
+            if (ans.equals("a")){
                 System.out.println("Name");
                 String name = input.next();
                 System.out.println("Phone");
@@ -18,6 +23,7 @@ public class Main {
                 book.addList(name, phone, address);
                 book.printBook();
             }
+
             else{
                 break;
             }
