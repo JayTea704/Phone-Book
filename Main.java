@@ -20,8 +20,24 @@ public class Main {
                 String phone = input.next();
                 System.out.println("address");
                 String address = input.next();
-                book.addList(name, phone, address);
+                System.out.println("city");
+                String city = input.next();
+                book.add(name, phone, address, city);
                 book.printBook();
+            }
+            else if(ans.equals("r")){
+                System.out.println("Type name, phone, address, and city of contact you want to remove");
+                System.out.println("Name");
+                String name = input.next();
+                System.out.println("Phone");
+                String phone = input.next();
+                System.out.println("address");
+                String address = input.next();
+                System.out.println("city");
+                String city = input.next();
+                book.remove(name, phone, address, city);
+                book.printBook();
+
             }
 
             else{

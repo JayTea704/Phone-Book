@@ -2,34 +2,59 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class PhoneBookManager {
-    public LinkedList<LinkNode> phoneBook;
+    public LinkNode head;
+    public LinkNode tail;
     Scanner input;
-    String name;
 
 
     public PhoneBookManager(Scanner input) {
         this.input = input;
-        phoneBook = new LinkedList<>();
+        head = null;
+        tail = null;
     }
 
-    public void addList(String name, String phone, String address) {
-        LinkNode node = new LinkNode();
-        node.data = name;
-        node.next = new LinkNode();
-        node.next.data = phone;
-        node.next.next = new LinkNode();
-        node.next.next.data = address;
-        phoneBook.add(node);
-    }
-
-    public void printBook(){
-        for(int i = 0; i < phoneBook.size(); i++) {
-            System.out.println("Name: " + phoneBook.get(i).data);
-            System.out.println("Phone Number: " + phoneBook.get(i).next.data);
-            System.out.println("Address: " + phoneBook.get(i).next.next.data);
-            System.out.println();
+    public void add(String name, String phone, String address, String city) {
+        LinkNode temp = head;
+        if(head == null){
+            head = new LinkNode(name, phone, address, city);
+        }
+        else{
+            while(temp.next != null){
+                temp = temp.next;
+            }
+            temp.next = new LinkNode(name, phone, address, city);
         }
 
     }
+
+    public void remove(String name, String phone, String address, String city){
+        LinkNode current = head;
+        LinkNode prev = null;
+        if (current.name.equals(name) && current.phone.equals(phone) && current.address.equals(address) && current.city.equals(city)) {
+            head = current.next;
+            return;
+        }
+        while(current != null && (!(current.name.equals(name)) || !(current.phone.equals(phone)) || !(current.address.equals(address)) || !(current.city.equals(city)))){
+            prev = current;
+            current = current.next;
+        }
+        prev.next = current.next;
+    }
+
+    public void printBook() {
+        LinkNode current = head;
+        while(current != null){
+            System.out.println(current.name);
+            System.out.println(current.phone);
+            System.out.println(current.address);
+            System.out.println(current.city);
+            System.out.println();
+            current = current.next;
+        }
+
+
+
+    }
+
 
 }
