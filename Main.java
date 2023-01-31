@@ -39,6 +39,19 @@ public class Main {
                 book.printBook();
 
             }
+            else if(ans.equals("c")){
+                System.out.println("Type name, phone, address, and city of contact you want to remove");
+                System.out.println("Name");
+                String name = input.next();
+                System.out.println("Phone");
+                String phone = input.next();
+                System.out.println("address");
+                String address = input.next();
+                System.out.println("city");
+                String city = input.next();
+                book.change(name, phone, address, city);
+                book.printBook();
+            }
 
             else{
                 break;

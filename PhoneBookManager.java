@@ -41,7 +41,40 @@ public class PhoneBookManager {
         prev.next = current.next;
     }
 
+    public void change(String name, String phone, String address, String city){
+        System.out.println("What do you want to change");
+        System.out.println("name (n), phone (p), address (a), or city (c)");
+        String ans = input.next();
+        LinkNode current = head;
+        while(current != null && (!(current.name.equals(name)) || !(current.phone.equals(phone)) || !(current.address.equals(address)) || !(current.city.equals(city)))){
+            current = current.next;
+        }
+        if(ans.equals("n")){
+            System.out.println("What would you like to change it to");
+            ans = input.next();
+            if (current.name.equals(name) && current.phone.equals(phone) && current.address.equals(address) && current.city.equals(city)) {
+                current.name = ans;
+            }
+        }
+        else if (ans.equals("p")){
+            System.out.println("What would you like to change it to");
+            ans = input.next();
+            current.phone = ans;
+        }
+        else if (ans.equals("a")){
+            System.out.println("What would you like to change it to");
+            ans = input.next();
+            current.address = ans;
+        }
+        else if (ans.equals("c")){
+            System.out.println("What would you like to change it to");
+            ans = input.next();
+            current.city = ans;
+        }
+    }
+
     public void printBook() {
+        System.out.println();
         LinkNode current = head;
         while(current != null){
             System.out.println(current.name);
