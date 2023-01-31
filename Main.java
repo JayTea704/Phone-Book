@@ -10,6 +10,7 @@ public class Main {
             System.out.println("add contact (a)");
             System.out.println("remove contact (r)");
             System.out.println("change contact (c)");
+            System.out.println("Display phone book (d)");
 
             String ans = input.next();
 
@@ -23,7 +24,6 @@ public class Main {
                 System.out.println("city");
                 String city = input.next();
                 book.add(name, phone, address, city);
-                book.printBook();
             }
             else if(ans.equals("r")){
                 System.out.println("Type name, phone, address, and city of contact you want to remove");
@@ -36,11 +36,10 @@ public class Main {
                 System.out.println("city");
                 String city = input.next();
                 book.remove(name, phone, address, city);
-                book.printBook();
 
             }
             else if(ans.equals("c")){
-                System.out.println("Type name, phone, address, and city of contact you want to remove");
+                System.out.println("Type name, phone, address, and city of contact you want to change");
                 System.out.println("Name");
                 String name = input.next();
                 System.out.println("Phone");
@@ -50,6 +49,10 @@ public class Main {
                 System.out.println("city");
                 String city = input.next();
                 book.change(name, phone, address, city);
+                book.printBook();
+            }
+
+            else if(ans.equals("d")){
                 book.printBook();
             }
 
